@@ -104,15 +104,13 @@ export default function Navbar() {
           </nav>
 
           {/* CTA Button */}
-          <a
-            href={`https://wa.me/${CLINIC_INFO.whatsapp}?text=Hi%20Pearl%20Dental%2C%20I%20want%20to%20book%20an%20appointment.`}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })}
             className="btn btn-primary desktop-nav"
-            style={{ fontSize: '0.85rem', padding: '10px 20px' }}
+            style={{ fontSize: '0.85rem', padding: '10px 20px', cursor: 'pointer', border: 'none' }}
           >
             📅 Book Now
-          </a>
+          </button>
 
           {/* Mobile Hamburger */}
           <button
@@ -161,14 +159,13 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            <a
-              href={`https://wa.me/${CLINIC_INFO.whatsapp}?text=Hi%20Pearl%20Dental%2C%20I%20want%20to%20book%20an%20appointment.`}
-              target="_blank" rel="noopener noreferrer"
+            <button
+              onClick={() => { setMobileOpen(false); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }}
               className="btn btn-primary"
-              style={{ marginTop: 8, justifyContent: 'center' }}
+              style={{ marginTop: 8, justifyContent: 'center', cursor: 'pointer', border: 'none' }}
             >
               📅 Book Appointment
-            </a>
+            </button>
           </div>
         )}
       </header>

@@ -59,17 +59,6 @@ export default function Services() {
               <div style={{ padding: '24px 24px 20px' }}>
                 {/* Icon + Title */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 14 }}>
-                  <div style={{
-                    width: 52, height: 52,
-                    background: `${svc.color}15`,
-                    border: `2px solid ${svc.color}30`,
-                    borderRadius: 14,
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontSize: '1.6rem',
-                    flexShrink: 0,
-                  }}>
-                    {svc.icon}
-                  </div>
                   <div>
                     <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#0f172a', fontFamily: 'Inter, sans-serif', lineHeight: 1.2 }}>
                       {svc.title}
@@ -85,17 +74,9 @@ export default function Services() {
                 </p>
 
                 {/* Price & CTA */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div>
-                    <div style={{ fontSize: '0.72rem', color: '#94a3b8', fontWeight: 500 }}>Starting from</div>
-                    <div style={{ fontSize: '0.95rem', fontWeight: 700, color: svc.color }}>
-                      {svc.price.split('–')[0].trim()}
-                    </div>
-                  </div>
-                  <a
-                    href={`https://wa.me/${CLINIC_INFO.whatsapp}?text=Hi%20Pearl%20Dental%2C%20I%27m%20interested%20in%20${encodeURIComponent(svc.title)}%20treatment.`}
-                    target="_blank" rel="noopener noreferrer"
-                    onClick={e => e.stopPropagation()}
+                <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                  <button
+                    onClick={e => { e.stopPropagation(); document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' }); }}
                     style={{
                       display: 'inline-flex', alignItems: 'center', gap: 6,
                       background: `${svc.color}15`,
@@ -104,6 +85,7 @@ export default function Services() {
                       fontSize: '0.8rem', fontWeight: 600, textDecoration: 'none',
                       transition: 'all 0.2s',
                       fontFamily: 'Inter, sans-serif',
+                      cursor: 'pointer',
                     }}
                     onMouseEnter={e => {
                       e.currentTarget.style.background = svc.color;
@@ -115,7 +97,7 @@ export default function Services() {
                     }}
                   >
                     Book →
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -128,7 +110,7 @@ export default function Services() {
             Not sure which treatment you need? Get a free consultation with our experts.
           </p>
           <button
-            onClick={() => document.getElementById('appointment')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })}
             className="btn btn-primary"
             style={{ fontSize: '1rem', padding: '14px 36px' }}
           >

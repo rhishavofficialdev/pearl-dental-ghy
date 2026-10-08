@@ -127,9 +127,8 @@ export default function Team() {
 
                 {/* Book with doctor */}
                 <div style={{ marginTop: 16 }}>
-                  <a
-                    href={`https://wa.me/${CLINIC_INFO.whatsapp}?text=Hi%20Pearl%20Dental%2C%20I%27d%20like%20to%20book%20an%20appointment%20with%20${encodeURIComponent(doc.name)}.`}
-                    target="_blank" rel="noopener noreferrer"
+                  <button
+                    onClick={() => document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })}
                     style={{
                       display: 'inline-flex', alignItems: 'center', gap: 6,
                       background: `${avatarColors[i]}10`,
@@ -139,6 +138,7 @@ export default function Team() {
                       fontWeight: 600, textDecoration: 'none',
                       fontFamily: 'Inter, sans-serif',
                       transition: 'all 0.2s',
+                      cursor: 'pointer'
                     }}
                     onMouseEnter={e => {
                       e.currentTarget.style.background = avatarColors[i];
@@ -150,7 +150,7 @@ export default function Team() {
                     }}
                   >
                     📅 Book Appointment
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

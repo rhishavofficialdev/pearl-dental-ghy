@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { CLINIC_INFO, STATS } from '../data/clinicData';
 import heroBg from '../assets/hero_bg.png';
+import BookingForm from './BookingForm';
 
 export default function Hero() {
   const parallaxRef = useRef<HTMLDivElement>(null);
@@ -16,7 +17,7 @@ export default function Hero() {
   }, []);
 
   const handleBook = () => {
-    document.getElementById('appointment')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -113,57 +114,9 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: Stats cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-            {STATS.map((stat, i) => (
-              <div key={i} style={{
-                background: 'rgba(255,255,255,0.1)',
-                backdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255,255,255,0.2)',
-                borderRadius: 20, padding: '28px 20px',
-                textAlign: 'center',
-                animation: `fadeInUp 0.6s ease ${0.1 * i}s both`,
-                transition: 'transform 0.3s',
-                cursor: 'default',
-              }}
-              onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-6px) scale(1.02)')}
-              onMouseLeave={e => (e.currentTarget.style.transform = 'translateY(0) scale(1)')}
-              >
-                <div style={{
-                  fontSize: '2.4rem', fontWeight: 800, color: '#e0f2fe',
-                  fontFamily: "'Inter', sans-serif",
-                  lineHeight: 1,
-                }}>{stat.value}</div>
-                <div style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.88rem', marginTop: 6, fontWeight: 500 }}>
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-
-            {/* Quick Info Card */}
-            <div style={{
-              gridColumn: '1 / -1',
-              background: 'rgba(255,255,255,0.1)',
-              backdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255,255,255,0.2)',
-              borderRadius: 20, padding: '20px 24px',
-              display: 'flex', alignItems: 'center', gap: 16,
-            }}>
-              <div style={{
-                width: 48, height: 48, borderRadius: '50%',
-                background: 'linear-gradient(135deg, #10b981, #059669)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '1.3rem', flexShrink: 0,
-              }}>📍</div>
-              <div>
-                <div style={{ color: 'white', fontWeight: 600, fontSize: '0.95rem' }}>
-                  {CLINIC_INFO.address}
-                </div>
-                <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.82rem', marginTop: 2 }}>
-                  Mon–Sat: 9AM–8PM · Sun: 10AM–4PM
-                </div>
-              </div>
-            </div>
+          {/* Right: Booking Form */}
+          <div style={{ display: 'flex', justifyContent: 'center', animation: 'fadeInUp 0.8s ease' }}>
+            <BookingForm />
           </div>
         </div>
       </div>

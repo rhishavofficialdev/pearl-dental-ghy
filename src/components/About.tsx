@@ -150,7 +150,7 @@ export default function About() {
 
             <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
               <button
-                onClick={() => document.getElementById('appointment')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })}
                 className="btn btn-primary"
               >
                 📅 Book Consultation

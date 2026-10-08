@@ -34,7 +34,7 @@ export default function FAQ() {
             </p>
             <div style={{ marginTop: 32, display: 'flex', flexDirection: 'column', gap: 16 }}>
               <a
-                href="https://wa.me/919729148975?text=Hi%20Pearl%20Dental%2C%20I%20have%20a%20question."
+                href="https://wa.me/917002273231?text=Hi%20Pearl%20Dental%2C%20I%20have%20a%20question."
                 target="_blank" rel="noopener noreferrer"
                 className="btn btn-primary"
                 style={{ width: 'fit-content' }}
@@ -42,7 +42,7 @@ export default function FAQ() {
                 💬 Ask on WhatsApp
               </a>
               <a
-                href="tel:+919729148975"
+                href="tel:+917002273231"
                 className="btn btn-secondary"
                 style={{ width: 'fit-content' }}
               >

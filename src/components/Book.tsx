@@ -34,7 +34,7 @@ export function CTA() {
         <Btn href="#book">Book an Appointment</Btn>
 
         {/* Call Clinic */}
-        <Btn href="tel:+919729148975" dark={false}>
+        <Btn href="tel:+917002273231" dark={false}>
           <Phone size={16} />
           Call the Clinic
         </Btn>
@@ -69,12 +69,12 @@ export function AppointmentForm() {
      * WhatsApp number
      *
      * 91 = India country code
-     * 9729148975 = clinic WhatsApp number
+     * 7002273231 = clinic WhatsApp number
      *
      * Final number:
-     * 919729148975
+     * 917002273231
      */
-    const whatsappNumber = "919729148975";
+    const whatsappNumber = "917002273231";
 
     /* WhatsApp message */
     const whatsappMessage = `
@@ -261,7 +261,7 @@ export function AppointmentForm() {
 
           <p className="text-center text-sm text-ink/50 sm:col-span-2">
             Your appointment details will be sent to WhatsApp:{" "}
-            <strong>+91 9729148975</strong>
+            <strong>+91 7002273231</strong>
           </p>
         </form>
       )}
@@ -292,7 +292,7 @@ export function Contact() {
           Hengrabari road,housing tiniali(near prajapati bhawan)dispur ghy 06,
           Guwahati, Assam 781036
           <br />
-          Phone: +91 9729148975
+          Phone: +91 7002273231
           <br />
           Mon–Sun 9:00AM–8:00PM ·
         </p>
@@ -303,13 +303,13 @@ export function Contact() {
 
         <div className="mt-6 flex flex-wrap gap-3">
           {/* Call */}
-          <Btn href="tel:+919729148975">
+          <Btn href="tel:+917002273231">
             <Phone size={16} />
             Call
           </Btn>
 
           {/* WhatsApp */}
-          <Btn href="https://wa.me/919729148975" dark={false}>
+          <Btn href="https://wa.me/917002273231" dark={false}>
             <MessageCircle size={16} />
             WhatsApp
           </Btn>
@@ -363,7 +363,7 @@ export function Footer() {
     {
       icon: MessageCircle,
       label: "WhatsApp",
-      href: "https://wa.me/919729148975",
+      href: "https://wa.me/917002273231",
     },
   ];
 

@@ -147,10 +147,12 @@ export default function Footer() {
             }}>
               <div style={{ color: 'white', fontWeight: 600, fontSize: '0.85rem', marginBottom: 8 }}>📞 Contact</div>
               <div style={{ fontSize: '0.82rem', lineHeight: 1.7 }}>
-                <div>{CLINIC_INFO.phone}</div>
-                <div>{CLINIC_INFO.email}</div>
+                <a href={`tel:${CLINIC_INFO.phone}`} style={{ color: 'inherit', textDecoration: 'none' }}>{CLINIC_INFO.phone}</a>
+                <div style={{ marginTop: 4 }}>{CLINIC_INFO.email}</div>
                 <div style={{ marginTop: 6, color: 'rgba(255,255,255,0.5)', fontSize: '0.78rem' }}>
-                  Guwahati, Assam 781006
+                  Hengrabari Road, Housing Tiniali<br />
+                  Near Prajapati Bhawan, Dispur<br />
+                  Guwahati, Assam 781036
                 </div>
               </div>
             </div>

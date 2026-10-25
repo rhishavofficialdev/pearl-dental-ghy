@@ -165,7 +165,7 @@ export default function Footer() {
           flexWrap: 'wrap', gap: 12,
         }}>
           <div style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)' }}>
-            © {new Date().getFullYear()} Pearl Dental Clinic, Guwahati. All rights reserved.
+            © {new Date().getFullYear()} Pearl Dental Clinic, Guwahati. All rights reserved | Developed By Rhishav 
           </div>
           <div style={{ display: 'flex', gap: 20, fontSize: '0.82rem' }}>
             {['Privacy Policy', 'Terms of Service', 'Sitemap'].map(l => (

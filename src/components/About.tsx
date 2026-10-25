@@ -1,6 +1,10 @@
 import { useRef, useEffect, useState } from 'react';
 import { CLINIC_INFO, STATS } from '../data/clinicData';
+<<<<<<< HEAD
 import doctorImg from '../assets/doctor.jpeg';
+=======
+import doctorImg from '../assets/pearl.jpeg';
+>>>>>>> bec2be8dd2c55115ccd5f650ec4a0f73b4a1118a
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLElement>(null);

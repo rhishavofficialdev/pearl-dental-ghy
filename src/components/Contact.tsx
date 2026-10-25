@@ -42,8 +42,8 @@ export default function Contact() {
             {[
               {
                 icon: '📍', title: 'Our Address',
-                content: 'Pearl Dental Clinic\nHengrabari Road, Housing Tiniali\n(Near Prajapati Bhawan), Dispur\nGuwahati, Assam 781006',
-                action: null,
+                content: 'Pearl Dental Clinic\nHengrabari Road, Housing Tiniali\n(Near Prajapati Bhawan), Dispur\nGuwahati, Assam 781036',
+                action: { label: 'Get Directions', href: CLINIC_INFO.mapUrl },
               },
               {
                 icon: '📞', title: 'Phone & WhatsApp',
@@ -53,7 +53,7 @@ export default function Contact() {
               },
               {
                 icon: '🕐', title: 'Clinic Hours',
-                content: 'Mon – Fri: 9:00 AM – 8:00 PM\nSaturday: 9:00 AM – 6:00 PM\nSunday: 10:00 AM – 4:00 PM',
+                content: 'Mon – Sat: 8:00 AM – 8:00 PM\nSunday: 8:00 AM – 2:30 PM',
                 action: null,
               },
               {

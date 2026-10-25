@@ -55,7 +55,7 @@ export default function Hero() {
           {/* Left content */}
           <div>
             <div className="section-tag" style={{ background: 'rgba(255,255,255,0.15)', color: 'white', borderColor: 'rgba(255,255,255,0.3)', backdropFilter: 'blur(10px)' }}>
-              ⭐ Rated {CLINIC_INFO.rating}/5 by {CLINIC_INFO.reviewCount}+ patients
+              ⭐ Rated {CLINIC_INFO.rating}/5 · {CLINIC_INFO.reviewCount}+ Google Reviews
             </div>
             <h1 style={{
               fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',

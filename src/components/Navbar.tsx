@@ -129,7 +129,7 @@ export default function Navbar() {
                 transition: 'all 0.3s',
                 transform: mobileOpen && i === 0 ? 'rotate(45deg) translateY(10px)' :
                   mobileOpen && i === 1 ? 'scaleX(0)' :
-                  mobileOpen && i === 2 ? 'rotate(-45deg) translateY(-10px)' : 'none',
+                    mobileOpen && i === 2 ? 'rotate(-45deg) translateY(-10px)' : 'none',
               }} />
             ))}
           </button>

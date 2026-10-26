@@ -118,7 +118,7 @@ export const TEAM = [
     id: 1,
     name: 'Dr. Nilakshi Talukdar',
     role: 'Chief Dental Surgeon & Founder',
-    qualification: 'BDS, MDS (Prosthodontics)',
+    qualification: 'BDS',
     experience: '7+ Years',
     speciality: 'Cosmetic Dentistry, Implants & General Dentistry',
     image: '/src/assets/pearl.jpeg',

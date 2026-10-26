@@ -116,7 +116,8 @@ export default function About() {
               {CLINIC_INFO.description}
             </p>
             <p style={{ color: '#64748b', lineHeight: 1.8, marginBottom: 36, fontSize: '0.95rem' }}>
-              Founded in {CLINIC_INFO.founded}, we've been dedicated to creating beautiful, healthy smiles using the latest dental technologies and evidence-based practices. Our compassionate team believes everyone deserves excellent dental care.
+              {/* Founded in {CLINIC_INFO.founded},  */}
+              We've been dedicated to creating beautiful, healthy smiles using the latest dental technologies and evidence-based practices. Our compassionate team believes everyone deserves excellent dental care.
             </p>
 
             {/* Feature Grid */}

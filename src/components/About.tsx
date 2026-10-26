@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { CLINIC_INFO, STATS } from '../data/clinicData';
-import doctorImg from '../assets/pearl.jpeg';
+import doctorImg from '../assets/doctor.jpeg';
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLElement>(null);
@@ -116,8 +116,7 @@ export default function About() {
               {CLINIC_INFO.description}
             </p>
             <p style={{ color: '#64748b', lineHeight: 1.8, marginBottom: 36, fontSize: '0.95rem' }}>
-              {/* Founded in {CLINIC_INFO.founded},  */}
-              We've been dedicated to creating beautiful, healthy smiles using the latest dental technologies and evidence-based practices. Our compassionate team believes everyone deserves excellent dental care.
+              Founded in {CLINIC_INFO.founded}, we've been dedicated to creating beautiful, healthy smiles using the latest dental technologies and evidence-based practices. Our compassionate team believes everyone deserves excellent dental care.
             </p>
 
             {/* Feature Grid */}

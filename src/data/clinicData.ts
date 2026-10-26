@@ -121,7 +121,11 @@ export const TEAM = [
     qualification: 'BDS',
     experience: '7+ Years',
     speciality: 'Cosmetic Dentistry, Implants & General Dentistry',
+<<<<<<< HEAD
+    image: '/src/assets/doctor.jpeg',
+=======
     image: '/src/assets/pearl.jpeg',
+>>>>>>> bec2be8dd2c55115ccd5f650ec4a0f73b4a1118a
     bio: 'Dr. Nilakshi Talukdar is the founder and chief dental surgeon of Pearl Dental Clinic, Guwahati. With 7+ years of dedicated clinical experience, she specializes in smile makeovers, dental implants, and full-mouth rehabilitation — bringing world-class dental care to Assam with a gentle, patient-first approach.',
   },
 ];

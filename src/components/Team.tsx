@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { TEAM } from '../data/clinicData';
 import { CLINIC_INFO } from '../data/clinicData';
+import doctorImg from '../assets/doctor.jpeg';
 
 function useInView(threshold = 0.1) {
   const ref = useRef<HTMLElement>(null);
@@ -56,7 +57,8 @@ export default function Team() {
               <div className="team-img-wrapper" style={{ position: 'relative', overflow: 'hidden' }}>
                 {doc.image ? (
                   <img
-                    src={doc.image}
+                    // src={doc.image}
+                    src={doctorImg}
                     alt={`${doc.name} - ${doc.role} at Pearl Dental Clinic`}
                     style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
                   />

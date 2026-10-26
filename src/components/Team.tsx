@@ -51,10 +51,13 @@ export default function Team() {
                 transition: `all 0.7s ease ${i * 0.15}s`,
                 maxWidth: 900,
                 width: '100%',
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: '2rem',
               }}
             >
               {/* Doctor Image / Avatar */}
-              <div className="team-img-wrapper" style={{ position: 'relative', overflow: 'hidden' }}>
+              <div className="team-img-wrapper" style={{ position: 'relative', overflow: 'hidden', flex: '0 0 40%' }}>
                 {doc.image ? (
                   <img
                     // src={doc.image}

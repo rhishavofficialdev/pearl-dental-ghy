@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { TEAM } from '../data/clinicData';
 import { CLINIC_INFO } from '../data/clinicData';
-import doctorImg from '../assets/doctor.jpeg';
+// Removed static doctor image import; using dynamic image from data
 
 function useInView(threshold = 0.1) {
   const ref = useRef<HTMLElement>(null);
@@ -58,7 +58,7 @@ export default function Team() {
                 {doc.image ? (
                   <img
                     // src={doc.image}
-                    src={doctorImg}
+                    src={doc.image}
                     alt={`${doc.name} - ${doc.role} at Pearl Dental Clinic`}
                     style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
                   />

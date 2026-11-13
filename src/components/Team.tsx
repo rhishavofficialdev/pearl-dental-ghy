@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import { TEAM } from '../data/clinicData';
+import { TEAM, CLINIC_INFO } from '../data/clinicData';
 
 function useInView(threshold = 0.1) {
   const ref = useRef<HTMLElement>(null);
@@ -100,17 +100,49 @@ export default function Team() {
                   background: '#0f172a',
                 }}
               >
-                <img
-                  src={doc.image}
-                  alt={`${doc.name} - ${doc.role} at Pearl Dental Clinic Guwahati`}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    objectPosition: 'top center',
-                    display: 'block',
-                  }}
-                />
+                {doc.image ? (
+                  <img
+                    src={doc.image}
+                    alt={`${doc.name} - ${doc.role} at Pearl Dental Clinic Guwahati`}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      objectPosition: 'top center',
+                      display: 'block',
+                    }}
+                  />
+                ) : (
+                  <div
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      minHeight: 280,
+                      background: 'linear-gradient(135deg, #0284c720, #0284c740)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexDirection: 'column',
+                      gap: 12,
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: 100,
+                        height: 100,
+                        borderRadius: '50%',
+                        background: 'linear-gradient(135deg, #0ea5e9, #0284c7)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontSize: '3rem',
+                        color: 'white',
+                      }}
+                    >
+                      {doc.name.split(' ').map((n: string) => n[0]).join('').slice(0, 2)}
+                    </div>
+                  </div>
+                )}
 
                 {/* Subtle gradient overlay */}
                 <div
@@ -284,7 +316,7 @@ export default function Team() {
                   </button>
 
                   <a
-                    href="https://wa.me/919729148975?text=Hello%20Dr.%20Nilakshi%2C%20I%20would%20like%20to%20consult%20regarding%20dental%20treatment."
+                    href={`https://wa.me/${CLINIC_INFO.whatsapp}?text=Hello%20Dr.%20Nilakshi%2C%20I%20would%20like%20to%20consult%20regarding%20dental%20treatment.`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-secondary team-btn"

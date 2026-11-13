@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { CLINIC_INFO } from '../data/clinicData';
-import doctorImg from '../assets/pearl.jpeg';
+import doctorImg from '../assets/doctor.jpeg';
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLElement>(null);
@@ -94,7 +94,7 @@ export default function About() {
               }}
             >
               <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#0ea5e9', lineHeight: 1 }}>
-                <CountUp end={5} />+
+                <CountUp end={7} />+
               </div>
               <div style={{ color: '#64748b', fontSize: '0.78rem', fontWeight: 600, marginTop: 4 }}>Years Exp.</div>
             </div>
@@ -132,7 +132,7 @@ export default function About() {
               {CLINIC_INFO.description}
             </p>
             <p style={{ color: '#64748b', lineHeight: 1.8, marginBottom: 28, fontSize: '0.92rem' }}>
-              We are dedicated to creating healthy, beautiful smiles using modern dental technologies and evidence-based practices. Our compassionate team ensures that every visit is calm, gentle, and transparent.
+              We've been dedicated to creating beautiful, healthy smiles using the latest dental technologies and evidence-based practices. Our compassionate team ensures that every visit is calm, gentle, and transparent.
             </p>
 
             {/* Feature Grid */}

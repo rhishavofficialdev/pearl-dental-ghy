@@ -33,7 +33,7 @@ export default function BookingForm() {
   const validate = () => {
     const e: Partial<FormData> = {};
     if (!form.name.trim()) e.name = 'Name is required';
-    if (!form.phone.trim() || !/^\+?[\d\s-]{10,}$/.test(form.phone)) e.phone = 'Valid phone number required';
+    if (!form.phone.trim() || !/^\+?[\d\s-]{10,}$/.test(form.phone)) e.phone = 'Valid 10-digit phone required';
     if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = 'Valid email required';
     if (!form.service) e.service = 'Please select a service';
     if (!form.date) e.date = 'Please select a date';
@@ -83,45 +83,65 @@ export default function BookingForm() {
     padding: '12px 14px',
     borderRadius: 12,
     border: hasError ? '2px solid #ef4444' : '1.5px solid #e2e8f0',
-    fontSize: '0.9rem',
+    fontSize: '16px', // 16px prevents iOS Safari auto-zoom
     fontFamily: 'Inter, sans-serif',
     color: '#0f172a',
     background: '#fafafa',
     outline: 'none',
     transition: 'all 0.2s',
     boxSizing: 'border-box',
+    minHeight: '48px',
   });
 
   const errorStyle: React.CSSProperties = {
-    color: '#ef4444', fontSize: '0.78rem', marginTop: 4, display: 'block',
+    color: '#ef4444',
+    fontSize: '0.78rem',
+    marginTop: 4,
+    display: 'block',
+    lineHeight: 1.3,
   };
 
   const labelStyle: React.CSSProperties = {
-    display: 'block', fontWeight: 600, fontSize: '0.85rem',
-    color: '#334155', marginBottom: 4, fontFamily: 'Inter, sans-serif',
+    display: 'block',
+    fontWeight: 600,
+    fontSize: '0.85rem',
+    color: '#334155',
+    marginBottom: 6,
+    fontFamily: 'Inter, sans-serif',
   };
 
   if (submitted) {
     return (
-      <div style={{
-        background: 'white', borderRadius: 24, padding: '36px',
-        boxShadow: '0 20px 60px rgba(0,0,0,0.08)',
-        border: '1px solid rgba(226,232,240,0.8)',
-        textAlign: 'center'
-      }}>
+      <div
+        className="booking-card"
+        style={{
+          background: 'white',
+          borderRadius: 24,
+          padding: '36px 24px',
+          boxShadow: '0 20px 60px rgba(0,0,0,0.12)',
+          border: '1px solid rgba(226,232,240,0.8)',
+          textAlign: 'center',
+          width: '100%',
+          maxWidth: 480,
+          boxSizing: 'border-box',
+        }}
+      >
         <div style={{ fontSize: '3rem', marginBottom: 16 }}>✅</div>
         <h3 style={{ color: '#065f46', fontFamily: 'Playfair Display, serif', marginBottom: 12, fontSize: '1.4rem' }}>
           Request Sent!
         </h3>
-        <p style={{ color: '#047857', marginBottom: 20, fontSize: '0.9rem' }}>
-          Your appointment request has been sent via WhatsApp!
+        <p style={{ color: '#047857', marginBottom: 24, fontSize: '0.92rem', lineHeight: 1.6 }}>
+          Your appointment request has been prepared and opened in WhatsApp! Our reception team will confirm your slot shortly.
         </p>
         <button
-          onClick={() => { setSubmitted(false); setForm({ name: '', phone: '', email: '', service: '', date: '', time: '', message: '' }); }}
+          onClick={() => {
+            setSubmitted(false);
+            setForm({ name: '', phone: '', email: '', service: '', date: '', time: '', message: '' });
+          }}
           className="btn btn-secondary"
-          style={{ padding: '10px 20px', fontSize: '0.9rem' }}
+          style={{ padding: '12px 24px', fontSize: '0.9rem', width: '100%', justifyContent: 'center' }}
         >
-          Book Another
+          Book Another Appointment
         </button>
       </div>
     );
@@ -130,56 +150,98 @@ export default function BookingForm() {
   return (
     <form
       onSubmit={handleSubmit}
+      className="booking-card"
       style={{
-        background: 'white', borderRadius: 24, padding: '28px',
+        background: 'white',
+        borderRadius: 24,
+        padding: '28px',
         boxShadow: '0 20px 60px rgba(0,0,0,0.15)',
         border: '1px solid rgba(226,232,240,0.8)',
         width: '100%',
-        boxSizing: 'border-box'
+        maxWidth: 480,
+        boxSizing: 'border-box',
       }}
     >
-      <h3 style={{
-        fontFamily: 'Playfair Display, serif', fontSize: '1.4rem',
-        color: '#0f172a', marginBottom: 20, textAlign: 'center',
-      }}>
-        📅 Schedule an Appointment
-      </h3>
+      <div style={{ textAlign: 'center', marginBottom: 20 }}>
+        <h3
+          style={{
+            fontFamily: 'Playfair Display, serif',
+            fontSize: 'clamp(1.25rem, 4vw, 1.45rem)',
+            color: '#0f172a',
+            marginBottom: 6,
+          }}
+        >
+          📅 Schedule an Appointment
+        </h3>
+        <p style={{ color: '#64748b', fontSize: '0.82rem', margin: 0 }}>
+          Fast & instant booking confirmed via WhatsApp
+        </p>
+      </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 12 }}>
+      {/* Row 1: Name and Phone (stacks on mobile) */}
+      <div className="booking-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 14 }}>
         <div>
           <label style={labelStyle}>Full Name *</label>
           <input
-            type="text" placeholder="Your name"
+            type="text"
+            placeholder="Your full name"
             value={form.name}
             onChange={e => handleChange('name', e.target.value)}
             style={inputStyle(!!errors.name)}
-            onFocus={e => { e.target.style.borderColor = '#0ea5e9'; e.target.style.boxShadow = '0 0 0 3px rgba(14,165,233,0.1)'; }}
-            onBlur={e => { e.target.style.borderColor = errors.name ? '#ef4444' : '#e2e8f0'; e.target.style.boxShadow = 'none'; }}
+            onFocus={e => {
+              e.target.style.borderColor = '#0ea5e9';
+              e.target.style.boxShadow = '0 0 0 3px rgba(14,165,233,0.15)';
+              e.target.style.background = '#ffffff';
+            }}
+            onBlur={e => {
+              e.target.style.borderColor = errors.name ? '#ef4444' : '#e2e8f0';
+              e.target.style.boxShadow = 'none';
+              e.target.style.background = '#fafafa';
+            }}
           />
           {errors.name && <span style={errorStyle}>{errors.name}</span>}
         </div>
+
         <div>
-          <label style={labelStyle}>Phone *</label>
+          <label style={labelStyle}>Phone Number *</label>
           <input
-            type="tel" placeholder="+91 98765 43210"
+            type="tel"
+            placeholder="+91 98765 43210"
             value={form.phone}
             onChange={e => handleChange('phone', e.target.value)}
             style={inputStyle(!!errors.phone)}
-            onFocus={e => { e.target.style.borderColor = '#0ea5e9'; e.target.style.boxShadow = '0 0 0 3px rgba(14,165,233,0.1)'; }}
-            onBlur={e => { e.target.style.borderColor = errors.phone ? '#ef4444' : '#e2e8f0'; e.target.style.boxShadow = 'none'; }}
+            onFocus={e => {
+              e.target.style.borderColor = '#0ea5e9';
+              e.target.style.boxShadow = '0 0 0 3px rgba(14,165,233,0.15)';
+              e.target.style.background = '#ffffff';
+            }}
+            onBlur={e => {
+              e.target.style.borderColor = errors.phone ? '#ef4444' : '#e2e8f0';
+              e.target.style.boxShadow = 'none';
+              e.target.style.background = '#fafafa';
+            }}
           />
           {errors.phone && <span style={errorStyle}>{errors.phone}</span>}
         </div>
       </div>
 
-      <div style={{ marginBottom: 12 }}>
+      {/* Row 2: Service Required */}
+      <div style={{ marginBottom: 14 }}>
         <label style={labelStyle}>Service Required *</label>
         <select
           value={form.service}
           onChange={e => handleChange('service', e.target.value)}
           style={{ ...inputStyle(!!errors.service), cursor: 'pointer' }}
-          onFocus={e => { e.target.style.borderColor = '#0ea5e9'; e.target.style.boxShadow = '0 0 0 3px rgba(14,165,233,0.1)'; }}
-          onBlur={e => { e.target.style.borderColor = errors.service ? '#ef4444' : '#e2e8f0'; e.target.style.boxShadow = 'none'; }}
+          onFocus={e => {
+            e.target.style.borderColor = '#0ea5e9';
+            e.target.style.boxShadow = '0 0 0 3px rgba(14,165,233,0.15)';
+            e.target.style.background = '#ffffff';
+          }}
+          onBlur={e => {
+            e.target.style.borderColor = errors.service ? '#ef4444' : '#e2e8f0';
+            e.target.style.boxShadow = 'none';
+            e.target.style.background = '#fafafa';
+          }}
         >
           <option value="">Select a service...</option>
           {SERVICES.map(s => (
@@ -192,28 +254,46 @@ export default function BookingForm() {
         {errors.service && <span style={errorStyle}>{errors.service}</span>}
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 12 }}>
+      {/* Row 3: Date and Time (stacks on mobile) */}
+      <div className="booking-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 16 }}>
         <div>
-          <label style={labelStyle}>Date *</label>
+          <label style={labelStyle}>Preferred Date *</label>
           <input
             type="date"
             min={today}
             value={form.date}
             onChange={e => handleChange('date', e.target.value)}
             style={inputStyle(!!errors.date)}
-            onFocus={e => { e.target.style.borderColor = '#0ea5e9'; e.target.style.boxShadow = '0 0 0 3px rgba(14,165,233,0.1)'; }}
-            onBlur={e => { e.target.style.borderColor = errors.date ? '#ef4444' : '#e2e8f0'; e.target.style.boxShadow = 'none'; }}
+            onFocus={e => {
+              e.target.style.borderColor = '#0ea5e9';
+              e.target.style.boxShadow = '0 0 0 3px rgba(14,165,233,0.15)';
+              e.target.style.background = '#ffffff';
+            }}
+            onBlur={e => {
+              e.target.style.borderColor = errors.date ? '#ef4444' : '#e2e8f0';
+              e.target.style.boxShadow = 'none';
+              e.target.style.background = '#fafafa';
+            }}
           />
           {errors.date && <span style={errorStyle}>{errors.date}</span>}
         </div>
+
         <div>
-          <label style={labelStyle}>Time *</label>
+          <label style={labelStyle}>Preferred Time *</label>
           <select
             value={form.time}
             onChange={e => handleChange('time', e.target.value)}
             style={{ ...inputStyle(!!errors.time), cursor: 'pointer' }}
-            onFocus={e => { e.target.style.borderColor = '#0ea5e9'; e.target.style.boxShadow = '0 0 0 3px rgba(14,165,233,0.1)'; }}
-            onBlur={e => { e.target.style.borderColor = errors.time ? '#ef4444' : '#e2e8f0'; e.target.style.boxShadow = 'none'; }}
+            onFocus={e => {
+              e.target.style.borderColor = '#0ea5e9';
+              e.target.style.boxShadow = '0 0 0 3px rgba(14,165,233,0.15)';
+              e.target.style.background = '#ffffff';
+            }}
+            onBlur={e => {
+              e.target.style.borderColor = errors.time ? '#ef4444' : '#e2e8f0';
+              e.target.style.boxShadow = 'none';
+              e.target.style.background = '#fafafa';
+            }}
           >
             <option value="">Select time...</option>
             {timeSlots.map(t => <option key={t} value={t}>{t}</option>)}
@@ -222,33 +302,75 @@ export default function BookingForm() {
         </div>
       </div>
 
+      {/* Submit Button */}
       <button
         type="submit"
         disabled={loading}
         className="btn btn-primary"
         style={{
-          width: '100%', fontSize: '0.95rem', padding: '14px',
-          justifyContent: 'center', opacity: loading ? 0.8 : 1,
-          marginTop: 8
+          width: '100%',
+          fontSize: '0.98rem',
+          padding: '14px',
+          minHeight: '50px',
+          justifyContent: 'center',
+          opacity: loading ? 0.8 : 1,
+          cursor: loading ? 'not-allowed' : 'pointer',
+          borderRadius: 14,
         }}
       >
         {loading ? (
           <>
-            <span style={{
-              width: 16, height: 16, border: '2px solid white',
-              borderTopColor: 'transparent', borderRadius: '50%',
-              display: 'inline-block',
-              animation: 'spin-slow 0.8s linear infinite',
-            }} />
-            Sending...
+            <span
+              style={{
+                width: 18,
+                height: 18,
+                border: '2px solid white',
+                borderTopColor: 'transparent',
+                borderRadius: '50%',
+                display: 'inline-block',
+                animation: 'spin-slow 0.8s linear infinite',
+              }}
+            />
+            <span>Sending...</span>
           </>
         ) : (
-          <>💬 Book via WhatsApp</>
+          <>
+            <span>💬</span>
+            <span>Book via WhatsApp</span>
+          </>
         )}
       </button>
+
+      <div
+        style={{
+          marginTop: 12,
+          textAlign: 'center',
+          fontSize: '0.75rem',
+          color: '#94a3b8',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 6,
+        }}
+      >
+        <span>🔒</span>
+        <span>Your data is private & confirmed directly with clinic staff</span>
+      </div>
+
+      {/* Responsive Styles */}
       <style>{`
         @keyframes spin-slow {
           to { transform: rotate(360deg); }
+        }
+        @media (max-width: 640px) {
+          .booking-card {
+            padding: 22px 16px !important;
+            border-radius: 20px !important;
+          }
+          .booking-form-grid {
+            grid-template-columns: 1fr !important;
+            gap: 12px !important;
+          }
         }
       `}</style>
     </form>

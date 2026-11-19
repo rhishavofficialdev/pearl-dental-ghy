@@ -94,9 +94,9 @@ export default function About() {
               }}
             >
               <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#0ea5e9', lineHeight: 1 }}>
-                <CountUp end={7} />+
+                <CountUp end={5} />+
               </div>
-              <div style={{ color: '#64748b', fontSize: '0.78rem', fontWeight: 600, marginTop: 4 }}>Years Exp.</div>
+              <div style={{ color: '#64748b', fontSize: '0.75rem', fontWeight: 600, marginTop: 4 }}>Years of Experience</div>
             </div>
 
             {/* Floating stat badge - Smiles */}

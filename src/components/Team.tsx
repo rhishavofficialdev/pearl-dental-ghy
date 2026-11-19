@@ -174,7 +174,7 @@ export default function Team() {
                   }}
                 >
                   <span>⭐</span>
-                  <span>{doc.experience} Clinical Experience</span>
+                  <span>{doc.experience}</span>
                 </div>
 
                 {/* Mobile doctor overlay name tag */}

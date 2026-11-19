@@ -23,7 +23,7 @@ export const reviews=[
 {n:'Demo Patient C',t:'Pediatric Care',r:'My son actually asked when he could come back. That says everything.'},
 {n:'Demo Patient D',t:'Dental Veneers',r:'Natural, bright and exactly what I wanted. The smile plan made me feel in control.'}]
 export const dentists=[
-{n:'Dr. [Name]',q:'BDS',s:'Family & Pediatric Dentistry',e:'8 yrs',b:'Makes first visits calm, playful and stress-free.'}]
+{n:'Dr. [Name]',q:'BDS',s:'Family & Pediatric Dentistry',e:'5+ Years of Experience',b:'Makes first visits calm, playful and stress-free.'}]
 export const faqs=[
 ['How often should I visit the dentist?','Most people benefit from a checkup and cleaning every six months. We will suggest a schedule that fits you.'],
 ['Is teeth whitening safe?','Yes, when supervised by a dentist. We assess your teeth and gums first to keep it safe and comfortable.'],

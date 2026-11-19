@@ -58,43 +58,60 @@ export default function Services() {
             position: 'relative',
             opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(30px)',
             transition: 'all 0.7s ease 0.15s',
-            minHeight: 220,
             background: '#0f172a',
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            alignItems: 'stretch',
           }}
         >
-          <img
-            src={servicesBanner}
-            alt="Happy patient at Pearl Dental Clinic Guwahati"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', minHeight: 220 }}
-          />
-          {/* Overlay with text */}
+          {/* Photo Column - 50% size, matching layout proportions of previous section */}
           <div
-            className="services-banner-overlay"
+            className="services-banner-img-wrap"
             style={{
-              position: 'absolute', inset: 0,
-              background: 'linear-gradient(90deg, rgba(10,25,47,0.92) 0%, rgba(10,25,47,0.6) 65%, rgba(10,25,47,0.3) 100%)',
-              display: 'flex', alignItems: 'center',
-              padding: '28px 40px',
+              position: 'relative',
+              overflow: 'hidden',
+              minHeight: 260,
+              background: '#0f172a',
             }}
           >
-            <div style={{ maxWidth: 520 }}>
+            <img
+              src={servicesBanner}
+              alt="Happy patient at Pearl Dental Clinic Guwahati"
+              className="services-banner-img"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+            />
+          </div>
+
+          {/* Text Content Column */}
+          <div
+            className="services-banner-content"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              padding: '36px 40px',
+              background: 'linear-gradient(135deg, #0a192f 0%, #0f172a 100%)',
+              zIndex: 1,
+            }}
+          >
+            <div>
               <div style={{
                 display: 'inline-flex', alignItems: 'center', gap: 6,
                 background: 'rgba(56,189,248,0.25)',
                 border: '1px solid rgba(56,189,248,0.4)',
-                borderRadius: 100, padding: '4px 12px', marginBottom: 10,
+                borderRadius: 100, padding: '4px 12px', marginBottom: 12,
                 color: '#7dd3fc', fontSize: '0.75rem', fontWeight: 600,
               }}>
                 🌺 Proudly Serving Assam & Northeast India
               </div>
               <h3 style={{
-                color: 'white', fontSize: 'clamp(1.2rem, 3vw, 1.7rem)', fontWeight: 700,
-                lineHeight: 1.3, margin: '0 0 8px',
+                color: 'white', fontSize: 'clamp(1.2rem, 2.2vw, 1.65rem)', fontWeight: 700,
+                lineHeight: 1.3, margin: '0 0 10px',
                 fontFamily: "'Playfair Display', serif",
               }}>
                 Guwahati's Most Trusted Smile Specialists
               </h3>
-              <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.88rem', margin: 0 }}>
+              <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.88rem', margin: 0, lineHeight: 1.6 }}>
                 Dr. Nilakshi Talukdar · BDS · ⭐ {CLINIC_INFO.rating} Rating ({CLINIC_INFO.reviewCount}+ Google Reviews)
               </p>
             </div>
@@ -153,12 +170,8 @@ export default function Services() {
                   {activeService === svc.id ? svc.description : svc.shortDesc}
                 </p>
 
-                {/* Price and CTA */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 'auto', paddingTop: 8 }}>
-                  <div style={{ fontSize: '0.8rem', fontWeight: 600, color: '#0f172a' }}>
-                    {svc.price}
-                  </div>
-
+                {/* CTA */}
+                <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', marginTop: 'auto', paddingTop: 8 }}>
                   <button
                     onClick={e => {
                       e.stopPropagation();
@@ -207,15 +220,30 @@ export default function Services() {
       </div>
 
       <style>{`
+        @media (max-width: 860px) {
+          .services-culture-banner {
+            grid-template-columns: 1fr !important;
+          }
+          .services-banner-img-wrap {
+            min-height: 220px !important;
+            max-height: 280px !important;
+          }
+          .services-banner-content {
+            padding: 26px 20px !important;
+          }
+        }
         @media (max-width: 768px) {
           #services {
             padding: 70px 0 !important;
           }
-          .services-banner-overlay {
-            padding: 24px 20px !important;
-          }
         }
         @media (max-width: 480px) {
+          .services-banner-img-wrap {
+            min-height: 190px !important;
+          }
+          .services-banner-content {
+            padding: 20px 16px !important;
+          }
           .services-cta-btn {
             width: 100% !important;
             justify-content: center !important;

@@ -38,13 +38,13 @@ export default function Services() {
           transition: 'all 0.7s ease',
         }}>
           <div className="section-tag" style={{ justifyContent: 'center' }}>
-            <span>🦷</span>
-            <span>Our Dental Services</span>
+            <span>✨</span>
+            <span>Our Services</span>
           </div>
           <h2 className="section-title">Comprehensive Dental <span>Care</span></h2>
           <div className="divider divider-center" />
           <p className="section-subtitle" style={{ margin: '0 auto', textAlign: 'center' }}>
-            From routine teeth cleaning to advanced smile design and painless root canals — we offer specialized dental treatments to keep your smile healthy and radiant.
+            From routine check-ups to advanced cosmetic procedures, we offer a full spectrum of dental treatments to keep your smile healthy and beautiful.
           </p>
         </div>
 
@@ -58,61 +58,51 @@ export default function Services() {
             position: 'relative',
             opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(30px)',
             transition: 'all 0.7s ease 0.15s',
+            height: 220,
             background: '#0f172a',
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            alignItems: 'stretch',
           }}
         >
-          {/* Photo Column - 50% size, matching layout proportions of previous section */}
-          <div
-            className="services-banner-img-wrap"
+          <img
+            src={servicesBanner}
+            alt="Happy patient at Pearl Dental Clinic Guwahati"
             style={{
-              position: 'relative',
-              overflow: 'hidden',
-              minHeight: 260,
-              background: '#0f172a',
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center 40%',
+              display: 'block',
             }}
-          >
-            <img
-              src={servicesBanner}
-              alt="Happy patient at Pearl Dental Clinic Guwahati"
-              className="services-banner-img"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
-            />
-          </div>
+          />
 
-          {/* Text Content Column */}
+          {/* Overlay with text */}
           <div
-            className="services-banner-content"
+            className="services-banner-overlay"
             style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              padding: '36px 40px',
-              background: 'linear-gradient(135deg, #0a192f 0%, #0f172a 100%)',
-              zIndex: 1,
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(90deg, rgba(10,25,47,0.92) 0%, rgba(10,25,47,0.65) 45%, rgba(10,25,47,0.2) 75%, transparent 100%)',
+              display: 'flex', alignItems: 'center',
+              padding: '28px 40px',
             }}
           >
-            <div>
+            <div style={{ maxWidth: 520 }}>
               <div style={{
                 display: 'inline-flex', alignItems: 'center', gap: 6,
                 background: 'rgba(56,189,248,0.25)',
                 border: '1px solid rgba(56,189,248,0.4)',
-                borderRadius: 100, padding: '4px 12px', marginBottom: 12,
+                borderRadius: 100, padding: '4px 12px', marginBottom: 10,
                 color: '#7dd3fc', fontSize: '0.75rem', fontWeight: 600,
               }}>
                 🌺 Proudly Serving Assam & Northeast India
               </div>
               <h3 style={{
-                color: 'white', fontSize: 'clamp(1.2rem, 2.2vw, 1.65rem)', fontWeight: 700,
-                lineHeight: 1.3, margin: '0 0 10px',
+                color: 'white', fontSize: 'clamp(1.2rem, 3vw, 1.7rem)', fontWeight: 700,
+                lineHeight: 1.25, margin: '0 0 8px',
                 fontFamily: "'Playfair Display', serif",
               }}>
-                Guwahati's Most Trusted Smile Specialists
+                Guwahati's Most Trusted<br />Smile Specialists
               </h3>
-              <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.88rem', margin: 0, lineHeight: 1.6 }}>
-                Dr. Nilakshi Talukdar · BDS · ⭐ {CLINIC_INFO.rating} Rating ({CLINIC_INFO.reviewCount}+ Google Reviews)
+              <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.88rem', margin: 0 }}>
+                Dr. Nilakshi Talukdar · BDS 4.9★ Rating
               </p>
             </div>
           </div>
@@ -220,28 +210,24 @@ export default function Services() {
       </div>
 
       <style>{`
-        @media (max-width: 860px) {
-          .services-culture-banner {
-            grid-template-columns: 1fr !important;
-          }
-          .services-banner-img-wrap {
-            min-height: 220px !important;
-            max-height: 280px !important;
-          }
-          .services-banner-content {
-            padding: 26px 20px !important;
-          }
-        }
         @media (max-width: 768px) {
           #services {
             padding: 70px 0 !important;
           }
+          .services-culture-banner {
+            height: auto !important;
+            min-height: 200px !important;
+          }
+          .services-banner-overlay {
+            padding: 24px 20px !important;
+            background: linear-gradient(90deg, rgba(10,25,47,0.95) 0%, rgba(10,25,47,0.85) 60%, rgba(10,25,47,0.65) 100%) !important;
+          }
         }
         @media (max-width: 480px) {
-          .services-banner-img-wrap {
-            min-height: 190px !important;
+          .services-culture-banner {
+            min-height: 180px !important;
           }
-          .services-banner-content {
+          .services-banner-overlay {
             padding: 20px 16px !important;
           }
           .services-cta-btn {
